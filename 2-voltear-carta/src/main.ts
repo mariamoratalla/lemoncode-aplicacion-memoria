@@ -11,5 +11,5 @@ function mostrarImagen(): void {
 const carta = document.querySelector(".imagen-container") as HTMLDivElement;
 
 if (carta && carta instanceof HTMLDivElement) {
-  document.addEventListener("click", mostrarImagen);
+  carta.addEventListener("click", mostrarImagen);
 }
