@@ -31,6 +31,16 @@ const infoCartas: InfoCarta[] = [
     imagen:
       "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/4.png",
   },
+  {
+    idFoto: 5,
+    imagen:
+      "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/5.png",
+  },
+  {
+    idFoto: 6,
+    imagen:
+      "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/6.png",
+  }
 ];
 
 const crearCartaInicial = (idFoto: number, imagen: string): Carta => ({
@@ -42,9 +52,8 @@ const crearCartaInicial = (idFoto: number, imagen: string): Carta => ({
 
 /* Aquí crearemos un array de cartas a partir de un array de infoCartas
     y duplicaremos las cartas para que haya dos de cada tipo. */
-    
+
 const crearColeccionDeCartasInicial = (infoCartas: InfoCarta[]): Carta[] => {
-  
   const coleccionCartas: Carta[] = [];
   infoCartas.forEach((carta) => {
     coleccionCartas.push(crearCartaInicial(carta.idFoto, carta.imagen));
