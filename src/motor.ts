@@ -67,12 +67,6 @@ export const parejaEncontrada = (
 ): void => {
   tablero.cartas[indiceA].encontrada = true;
   tablero.cartas[indiceB].encontrada = true;
-
-  const partidaCompleta = tablero.cartas.every((carta) => carta.encontrada);
-
-  if (partidaCompleta) {
-    tablero.estadoPartida = "PartidaCompleta";
-  }
 };
 
 /*
@@ -107,5 +101,31 @@ export const iniciaPartida = (tablero: Tablero): void => {
     carta.encontrada = false;
   });
 
-  tablero.estadoPartida = "CeroCartasLevantadas";
+  tablero.estadoPartida = "PartidaNoIniciada";
+};
+
+export const cambiarEstadoPartida = (tablero: Tablero): void => {
+  let cartasVolteadas = 0;
+
+  tablero.cartas.forEach((carta) => {
+    if (carta.estaVuelta) {
+      cartasVolteadas++;
+    }
+  });
+
+  switch (cartasVolteadas) {
+    case 0:
+      tablero.estadoPartida = "CeroCartasLevantadas";
+      break;
+    case 1:
+      tablero.estadoPartida = "UnaCartaLevantada";
+      break;
+    case 2:
+      tablero.estadoPartida = "DosCartasLevantadas";
+      break;
+  }
+
+  if (esPartidaCompleta(tablero)) {
+    tablero.estadoPartida = "PartidaCompleta";
+  }
 };
