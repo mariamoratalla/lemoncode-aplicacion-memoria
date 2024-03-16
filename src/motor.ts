@@ -93,7 +93,7 @@ export const esPartidaCompleta = (tablero: Tablero): boolean => {
   Iniciar partida
   */
 
-export const iniciaPartida = (tablero: Tablero): void => {
+export const iniciaPartida = (tablero: Tablero) => {
   barajarCartas(tablero.cartas);
 
   tablero.cartas.forEach((carta) => {
@@ -101,7 +101,6 @@ export const iniciaPartida = (tablero: Tablero): void => {
     carta.encontrada = false;
   });
 
-  tablero.estadoPartida = "PartidaNoIniciada";
 };
 
 export const cambiarEstadoPartida = (tablero: Tablero): void => {
@@ -128,4 +127,6 @@ export const cambiarEstadoPartida = (tablero: Tablero): void => {
   if (esPartidaCompleta(tablero)) {
     tablero.estadoPartida = "PartidaCompleta";
   }
+
+  console.log(tablero.estadoPartida);
 };

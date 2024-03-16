@@ -8,7 +8,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 header {
@@ -32,13 +31,16 @@ header h1 {
 
 .cartas-container {
   display: grid;
-  grid-template-columns: repeat(4, 200px);
-  gap: 30px;
+  grid-template-columns: repeat(4, 150px);
+  gap: 20px;
+  max-width: 800px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Margen automático para centrar horizontalmente */
+  justify-content: center;
 }
 
 .divCarta {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-color: rgb(225, 139, 194);
   border-radius: 10%;
   display: flex;
@@ -49,4 +51,20 @@ header h1 {
 .imagen {
   max-width: 100%;
   max-height: 100%;
+}
+
+button {
+  background-color: rgb(153, 80, 255);
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: rgb(177, 127, 247);
 }

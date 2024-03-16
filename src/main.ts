@@ -1,1 +1,3 @@
-import "./motor";
+import { iniciaPartidaUI } from "./ui";
+
+document.addEventListener("DOMContentLoaded", iniciaPartidaUI);
