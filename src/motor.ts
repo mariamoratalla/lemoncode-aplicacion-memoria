@@ -5,6 +5,8 @@ export const barajarCartas = (cartas: Carta[]): Carta[] => {
     const j = Math.floor(Math.random() * (i + 1));
     [cartas[i], cartas[j]] = [cartas[j], cartas[i]];
   }
+
+  console.log(cartas);
   return cartas;
 };
 
@@ -26,16 +28,19 @@ export const sePuedeVoltearLaCarta = (
 };
 
 export const voltearLaCarta = (tablero: Tablero, indice: number): void => {
-  if (sePuedeVoltearLaCarta(tablero, indice)) {
-    const cartaTablero = tablero.cartas[indice];
-    const cartaArray = cartas.find(
-      (carta) => carta.idFoto === cartaTablero.idFoto
-    );
+  const cartaTablero = tablero.cartas[indice];
+  const cartaArray = cartas.find(
+    (carta) => carta.idFoto === cartaTablero.idFoto
+  );
 
-    if (cartaArray) {
-      cartaTablero.estaVuelta = true;
-      cartaArray.imagen = cartaTablero.imagen;
+  if (cartaArray) {
+    if (tablero.estadoPartida === "CeroCartasLevantadas") {
+      tablero.indiceCartaVolteadaA = indice;
+    } else if (tablero.estadoPartida === "UnaCartaLevantada") {
+      tablero.indiceCartaVolteadaB = indice;
     }
+    cartaTablero.estaVuelta = true;
+    cartaArray.imagen = cartaTablero.imagen;
   }
 };
 
@@ -100,7 +105,6 @@ export const iniciaPartida = (tablero: Tablero) => {
     carta.estaVuelta = false;
     carta.encontrada = false;
   });
-
 };
 
 export const cambiarEstadoPartida = (tablero: Tablero): void => {
