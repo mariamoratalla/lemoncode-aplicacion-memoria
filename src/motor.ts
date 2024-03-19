@@ -83,12 +83,15 @@ export const iniciaPartida = (tablero: Tablero): void => {
 };
 
 export function cambiarEstadoPartida(tablero: Tablero) {
-  let cartasLevantadas = tablero.cartas.filter((carta) => carta.estaVuelta);
-  const numeroCartasLevantadas = cartasLevantadas.length;
-  let cartasEncontradas = tablero.cartas.filter((carta) => carta.encontrada);
-  const numeroCartasEncontradas = cartasEncontradas.length;
+  let cartasVolteadas = 0;
 
-  switch (numeroCartasLevantadas) {
+  tablero.cartas.forEach((carta) => {
+    if (carta.estaVuelta) {
+      cartasVolteadas++;
+    }
+  });
+
+  switch (cartasVolteadas) {
     case 0:
       tablero.estadoPartida = "CeroCartasLevantadas";
       break;
@@ -97,10 +100,9 @@ export function cambiarEstadoPartida(tablero: Tablero) {
       break;
     case 2:
       tablero.estadoPartida = "DosCartasLevantadas";
-      break;
   }
 
-  if (numeroCartasEncontradas === tablero.cartas.length) {
+  if (esPartidaCompleta(tablero)) {
     tablero.estadoPartida = "PartidaCompleta";
   }
 
