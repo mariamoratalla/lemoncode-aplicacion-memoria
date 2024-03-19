@@ -40,7 +40,7 @@ const infoCartas: InfoCarta[] = [
     idFoto: 6,
     imagen:
       "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/6.png",
-  }
+  },
 ];
 
 const crearCartaInicial = (idFoto: number, imagen: string): Carta => ({
@@ -84,11 +84,13 @@ export interface Tablero {
   estadoPartida: EstadoPartida;
   indiceCartaVolteadaA?: number;
   indiceCartaVolteadaB?: number;
+  intentos: number;
 }
 
 const crearTableroInicial = (): Tablero => ({
   cartas: cartas,
   estadoPartida: "PartidaNoIniciada",
+  intentos: 0,
 });
 
 export let tablero: Tablero = crearTableroInicial();

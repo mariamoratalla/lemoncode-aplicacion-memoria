@@ -10,6 +10,10 @@ export const barajarCartas = (cartas: Carta[]): Carta[] => {
   return cartas;
 };
 
+export const aumentarIntentos = (tablero: Tablero) => {
+  tablero.intentos++;
+};
+
 export const sePuedeVoltearLaCarta = (
   tablero: Tablero,
   indice: number

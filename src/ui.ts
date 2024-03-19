@@ -1,5 +1,6 @@
 import { Tablero, tablero } from "./modelo";
 import {
+  aumentarIntentos,
   cambiarEstadoPartida,
   iniciaPartida,
   parejaEncontrada,
@@ -20,6 +21,7 @@ if (boton && boton instanceof HTMLButtonElement) {
 export const iniciaPartidaUI = () => {
   iniciaPartida(tablero);
   crearTablero(tablero);
+  mostrarIntentos(tablero);
 };
 
 let numeroCarta = 0;
@@ -84,6 +86,10 @@ export const handleClickCarta = (indice: number): void => {
         tablero.indiceCartaVolteadaB = indice;
         cambiarEstadoPartida(tablero);
 
+        //incrementar intentos
+        aumentarIntentos(tablero);
+        mostrarIntentos(tablero);
+
         //comprobar si son pareja
         if (
           tablero.indiceCartaVolteadaA !== undefined &&
@@ -131,5 +137,16 @@ export const handleClickCarta = (indice: number): void => {
         }
       }
     }
+  }
+
+};
+
+const mostrarIntentos = (tablero: Tablero) => {
+  const contador = document.getElementById(
+    "numero-intentos"
+  ) as HTMLParagraphElement;
+
+  if (contador && contador instanceof HTMLParagraphElement) {
+    contador.innerHTML = `Número de intentos: ${tablero.intentos}`;
   }
 };
