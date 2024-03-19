@@ -138,7 +138,6 @@ export const handleClickCarta = (indice: number): void => {
       }
     }
   }
-
 };
 
 const mostrarIntentos = (tablero: Tablero) => {
