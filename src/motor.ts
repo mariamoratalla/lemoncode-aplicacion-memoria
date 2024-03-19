@@ -6,7 +6,6 @@ export const barajarCartas = (cartas: Carta[]): Carta[] => {
     [cartas[i], cartas[j]] = [cartas[j], cartas[i]];
   }
 
-  console.log(cartas);
   return cartas;
 };
 
@@ -109,6 +108,4 @@ export function cambiarEstadoPartida(tablero: Tablero) {
   if (esPartidaCompleta(tablero)) {
     tablero.estadoPartida = "PartidaCompleta";
   }
-
-  console.log(tablero.estadoPartida);
 }

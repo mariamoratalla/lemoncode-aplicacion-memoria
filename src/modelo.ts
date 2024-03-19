@@ -50,9 +50,6 @@ const crearCartaInicial = (idFoto: number, imagen: string): Carta => ({
   encontrada: false,
 });
 
-/* Aquí crearemos un array de cartas a partir de un array de infoCartas
-    y duplicaremos las cartas para que haya dos de cada tipo. */
-
 const crearColeccionDeCartasInicial = (infoCartas: InfoCarta[]): Carta[] => {
   const coleccionCartas: Carta[] = [];
   infoCartas.forEach((carta) => {
@@ -63,14 +60,6 @@ const crearColeccionDeCartasInicial = (infoCartas: InfoCarta[]): Carta[] => {
 };
 
 export let cartas: Carta[] = crearColeccionDeCartasInicial(infoCartas);
-
-/*
-    Aquí definimos el tipo de estado de la partida, la idea es que cuando empiece la partida
-    todas las cartas estén boca abajo y si se hacen click sobre ellas no se volteen.
-    EstadoPartida = "PartidaNoIniciada", una vez que se pulse Iniciar partida el estado 
-    de la partida cambiaría a "CeroCartasLevantadas" y así sucesivamente.
-
-  */
 
 type EstadoPartida =
   | "PartidaNoIniciada"
