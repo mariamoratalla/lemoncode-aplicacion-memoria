@@ -72,6 +72,10 @@ export const handleClickCarta = (indice: number): void => {
   const imagen = document.getElementById(`imagen${indice}`);
 
   if (imagen && imagen instanceof HTMLImageElement) {
+    if (tablero.cartas[indice].estaVuelta) {
+      alert("Esta carta ya está volteada, elige otra");
+    }
+
     if (sePuedeVoltearLaCarta(tablero, indice)) {
       voltearLaCarta(tablero, indice);
 
