@@ -76,6 +76,7 @@ export const handleClickCarta = (indice: number): void => {
       //mostrar imagen
       imagen.src = tablero.cartas[indice].imagen;
 
+      //cambiar estado
       if (tablero.estadoPartida === "CeroCartasLevantadas") {
         tablero.indiceCartaVolteadaA = indice;
         cambiarEstadoPartida(tablero);
